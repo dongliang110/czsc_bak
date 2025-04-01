@@ -25,5 +25,8 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           # git merge upstream/master --allow-unrelated-histories
-          git merge -X theirs upstream/master  # 强制接受上游版本（覆盖你的修改）
-          git push origin master
+          # git merge -X theirs upstream/master  # 强制接受上游版本（覆盖你的修改）
+          git fetch upstream
+          git reset --hard upstream/master  # 强制将本地分支重置到上游状态
+          git push origin master --force    # 覆盖远程仓库
+          # git push origin master
