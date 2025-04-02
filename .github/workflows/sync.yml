@@ -27,7 +27,6 @@ jobs:
           # git merge upstream/master --allow-unrelated-histories
           # git merge -X theirs upstream/master  # 强制接受上游版本（覆盖你的修改）
           git fetch upstream
-          git merge upstream/master --no-edit
-          # git reset --hard upstream/master  # 强制将本地分支重置到上游状态
-          git push origin master --force    # 覆盖远程仓库
-          # git push origin master
+          git merge upstream/master --no-edit --allow-unrelated-histories
+          git push origin master --force
+          
